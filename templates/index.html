@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+    <title>All Files</title>
+  </head>
+  <body>
+  <table>
+      {{ all_blobs|length }}
+
+      {% for blob in all_blobs %}
+        <tr>
+            <td><a href="{{ url_for('view', blob_name=blob['name']) }}">{{ blob['name'] }}</a></td>
+            <td>{{ blob['content_type'] }}</td>
+            <td>{{ blob['time_created'] }}</td>
+        </tr>
+      {% endfor %}
+
+  </table>
+  </body>
+</html>
